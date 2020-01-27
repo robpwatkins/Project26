@@ -3,5 +3,78 @@ html, body {
 }
 
 .mainBox {
+  width: 255px;
+  height: 375px;
+  margin: 45px auto;
+  background: black;
   border: 1px solid black;
+  border-radius: 5px;
+}
+
+.screenBox {
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 7px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 88%;
+  height: 85px;
+  margin: 0 auto;
+  font-size: 55px;
+  /* border: 1px solid black; */
+}
+
+.gridBox {
+  height: 77%;
+  width: 100%;
+}
+
+.buttonBox {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.button {
+  display: flex;
+  cursor: default;
+  font-size: 25px;
+  background: lightgray;
+  background: rgb(99, 99, 99);
+  color: lightgray;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.divide, .multiply, .subtract, .add, .equals {
+  border-right: 2px solid black;
+}
+
+.button:hover {
+  background: lightgray;
+  color: rgb(99, 99, 99);
+}
+
+.zero {
+  grid-column: span 2;
+  border-bottom-left-radius: 5px;
+}
+
+.equals {
+  border-bottom-right-radius: 5px;
 }
