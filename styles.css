@@ -1,3 +1,7 @@
 html, body {
   background-color: lightgray;
 }
+
+.mainBox {
+  border: 1px solid black;
+}
