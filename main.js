@@ -6,8 +6,9 @@ function calculate () {
   let operatorArr = [];
 
   function clickButtonNum (event) {
-    screenNums.push(parseInt(event.target.textContent))
-    screen.textContent = screenNums;
+    screenNums.push(parseInt(event.target.textContent));
+    screenNums.join('');
+    screen.textContent = parseInt(screenNums.join(''));
   }
   
   function clickOperator (event) {
