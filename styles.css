@@ -1,5 +1,5 @@
 html, body {
-  background-color: lightgray;
+  background-color: rgb(0, 164, 230);
 }
 
 .mainBox {
@@ -53,21 +53,23 @@ html, body {
   cursor: default;
   font-size: 25px;
   background: lightgray;
-  background: rgb(99, 99, 99);
-  color: lightgray;
+  background: rgb(110, 110, 110);
+  color: rgb(255, 255, 255);
   border-right: 1px solid black;
   border-bottom: 1px solid black;
+  border-radius: 3px;
   justify-content: center;
   align-items: center;
 }
 
 .divide, .multiply, .subtract, .add, .equals {
   border-right: 2px solid black;
+  background: rgb(122, 199, 230);
 }
 
 .button:hover {
-  background: lightgray;
-  color: rgb(99, 99, 99);
+  background: rgb(255, 255, 255);
+  color: black;
 }
 
 .zero {
