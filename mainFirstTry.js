@@ -21,9 +21,10 @@ function calculate () {
         screen.textContent = tempNums.join('');
         decimal.setAttribute('disabled', 'true');
       } else {
-    tempNums.push(event.target.textContent);
-    screenNums = [];
-      screenNums.push(Number(tempNums.join('')));
+      tempNums.push(event.target.textContent);
+      screenNums = [];
+      // screenNums.push(Number(tempNums.join('')));
+      screenNums.push(tempNums.join(''));
       screen.textContent = screenNums;
       if (tempNums.length > 8 && tempNums.length <=15) {
         screen.style.justifyContent = 'flex-end';
