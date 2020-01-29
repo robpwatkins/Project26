@@ -70,6 +70,7 @@ function calculate () {
       numsSize = 25;
       lineHeight = 80;
       screen.style.justifyContent = 'flex-end';
+      screen.style.alignItems = 'center';
       screen.style.fontSize = `${numsSize}px`;
       document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
     }
