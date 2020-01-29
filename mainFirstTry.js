@@ -6,9 +6,9 @@ function calculate () {
   let runningTotal;
   let currentOperator;
   let tempNums = [];
-  screen.textContent = screenNums;
   let numsSize = 55;
   let lineHeight = 100;
+  screen.textContent = screenNums;
 
   function buttonNumClick (event) {
     if (tempNums.length === 0 && event.target.textContent === '.') {
@@ -32,15 +32,15 @@ function calculate () {
         numsSize-=4;
       }
       if (tempNums.length > 15) {
+        lineHeight = 80;
         numsSize-=1;
       }
       document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
       document.querySelector('.screen').style.fontSize = `${numsSize}px`;
-    }
+      }
     }
   }
 
-  
   function operatorClick (event) {
     tempNums = [];
     currentOperator = event.target.textContent;
