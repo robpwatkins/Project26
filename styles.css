@@ -13,7 +13,6 @@ html, body {
 
 .screenBox {
   height: 85px;
-  /* line-height: 45px; */
   background: rgb(255, 255, 255);
   border: 1px solid black;
   border-radius: 7px;
@@ -25,7 +24,7 @@ html, body {
   justify-content: center;
   align-items: flex-end;
   width: 88%;
-  height: 85px;
+  height: 100px;
   margin: 0 auto;
   font-size: 55px;
   /* border: 1px solid black; */

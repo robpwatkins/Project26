@@ -7,7 +7,7 @@ function calculate () {
   let tempNums = [];
   screen.textContent = screenNums;
   let numsSize = 55;
-  let lineHeight = 75;
+  let lineHeight = 100;
 
   function buttonNumClick (event) {
     tempNums.push(event.target.textContent);
@@ -20,14 +20,18 @@ function calculate () {
       screenNums.push(Number(tempNums.join('')));
       screen.textContent = screenNums;
     }
-      if (tempNums.length > 8) {
+      if (tempNums.length > 8 && tempNums.length <=15) {
         screen.style.justifyContent = 'flex-end';
         screen.style.alignItems = 'center';
-        document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
-        lineHeight-=3;
+        lineHeight-=2;
         numsSize-=4;
-        document.querySelector('.screen').style.fontSize = `${numsSize}px`;
       }
+      if (tempNums.length > 15) {
+        numsSize-=1;
+        console.log(numsSize);
+      }
+      document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
+      document.querySelector('.screen').style.fontSize = `${numsSize}px`;
   }
 
   
