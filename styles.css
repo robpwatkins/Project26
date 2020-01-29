@@ -60,10 +60,14 @@ html, body {
   border-radius: 3px;
   justify-content: center;
   align-items: center;
+  transition: transform .04s;
+}
+
+.buttonClicked {
+  transform: scale(.97);
 }
 
 .divide, .multiply, .subtract, .add, .equals {
-  border-right: 2px solid black;
   background: rgb(122, 199, 230);
 }
 

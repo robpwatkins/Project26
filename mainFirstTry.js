@@ -1,19 +1,22 @@
 function calculate () {
-  const screen = document.querySelector('.screen'); 
-  let screenNums = [];
+  const screen = document.querySelector('.screen');
+  let screenNums = [0];
   let operatorNums = [];
   let runningTotal;
   let currentOperator;
   let tempNums = [];
+  screen.textContent = screenNums;
 
   function buttonNumClick (event) {
-    if (event.target.textContent === '.' && tempNums.indexOf('.') !== -1) {
-      tempNums.push('');
-    } else {
     tempNums.push(event.target.textContent);
     screenNums = [];
-    screenNums.push(Number(tempNums.join('')));
-    screen.textContent = screenNums;
+    if (event.target.textContent === '.') {
+      screenNums.push(0 + event.target.textContent)
+      screen.textContent = screenNums;
+      document.querySelector('.decimal').setAttribute('disabled', 'true');
+    } else {
+      screenNums.push(Number(tempNums.join('')));
+      screen.textContent = screenNums;
     }
   }
   
@@ -21,6 +24,7 @@ function calculate () {
     tempNums = [];
     currentOperator = event.target.textContent;
     operatorNums.push(Number(screenNums.join('')));
+    document.querySelector('.decimal').removeAttribute('disabled');
   }
 
   function equalsClick () {
@@ -43,15 +47,13 @@ function calculate () {
   }
 
   function plusOrMinusClick () {
-    console.log('heyoo');
+    screenNums[0] = screenNums[0] * -1;
+    screen.textContent = screenNums;
   }
 
   function moduloClick () {
-    console.log(screenNums);
-  }
-
-  function decimalClick () {
-    // console.log('heyoo');
+    screenNums[0] = screenNums[0] * .01;
+    screen.textContent = screenNums;
   }
 
   function clearAC () {
@@ -61,6 +63,16 @@ function calculate () {
     runningTotal = null;
     currentOperator = null;
     tempNums = [];
+    document.querySelector('.decimal').removeAttribute('disabled');
+  }
+
+  function buttonClicked (event) {
+    event.target.classList.add('buttonClicked');
+  }
+
+  function removeButtonClicked (event) {
+    if (event.propertyName !== 'transform') return;
+    this.classList.remove('buttonClicked');
   }
 
   document.querySelectorAll('.buttonNum').forEach(button => button.addEventListener('click', buttonNumClick));
@@ -69,7 +81,8 @@ function calculate () {
   document.querySelector('.AC').addEventListener('click', clearAC);
   document.querySelector('.modulo').addEventListener('click', moduloClick);
   document.querySelector('.plusOrMinus').addEventListener('click', plusOrMinusClick);
-  document.querySelector('.decimal').addEventListener('click', decimalClick);
+  document.querySelectorAll('.button').forEach(button => button.addEventListener('click', buttonClicked));
+  document.querySelectorAll('.button').forEach(button => button.addEventListener('transitionend', removeButtonClicked));
 }
 
 calculate();
