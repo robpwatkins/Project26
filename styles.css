@@ -27,7 +27,6 @@ html, body {
   height: 100px;
   margin: 0 auto;
   font-size: 55px;
-  /* border: 1px solid black; */
 }
 
 .gridBox {
@@ -42,7 +41,6 @@ html, body {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background: black;
-  border-bottom: 1px solid black;
   border-top: 1px solid black;
   border-left: 1px solid black;
   border-bottom-left-radius: 5px;
@@ -84,4 +82,8 @@ html, body {
 
 .equals {
   border-bottom-right-radius: 5px;
+}
+
+.zero, .decimal, .equals {
+  border-bottom: none;
 }

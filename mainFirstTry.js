@@ -1,5 +1,6 @@
 function calculate () {
   const screen = document.querySelector('.screen');
+  const decimal = document.querySelector('.decimal');
   let screenNums = [0];
   let operatorNums = [];
   let runningTotal;
@@ -10,16 +11,20 @@ function calculate () {
   let lineHeight = 100;
 
   function buttonNumClick (event) {
+    if (tempNums.length === 0 && event.target.textContent === '.') {
+      tempNums.push(0 + event.target.textContent);
+      screen.textContent = tempNums;
+      decimal.setAttribute('disabled', 'true');
+    } else {
+      if (event.target.textContent === '.') {
+        tempNums.push(event.target.textContent);
+        screen.textContent = tempNums.join('');
+        decimal.setAttribute('disabled', 'true');
+      } else {
     tempNums.push(event.target.textContent);
     screenNums = [];
-    if (event.target.textContent === '.') {
-      screenNums.push(0 + event.target.textContent)
-      screen.textContent = screenNums;
-      document.querySelector('.decimal').setAttribute('disabled', 'true');
-    } else {
       screenNums.push(Number(tempNums.join('')));
       screen.textContent = screenNums;
-    }
       if (tempNums.length > 8 && tempNums.length <=15) {
         screen.style.justifyContent = 'flex-end';
         screen.style.alignItems = 'center';
@@ -28,16 +33,18 @@ function calculate () {
       }
       if (tempNums.length > 15) {
         numsSize-=1;
-        console.log(numsSize);
       }
       document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
       document.querySelector('.screen').style.fontSize = `${numsSize}px`;
+    }
+    }
   }
 
   
   function operatorClick (event) {
     tempNums = [];
     currentOperator = event.target.textContent;
+    console.log(currentOperator);
     operatorNums.push(Number(screenNums.join('')));
     document.querySelector('.decimal').removeAttribute('disabled');
   }
@@ -53,7 +60,7 @@ function calculate () {
     if (currentOperator === 'X') {
       runningTotal = operatorNums.reduce((a, b) => a * b);
     }
-    if (currentOperator === '/') {
+    if (currentOperator === '÷') {
       runningTotal = operatorNums.reduce((a, b) => a / b);
     }
     operatorNums = [];
