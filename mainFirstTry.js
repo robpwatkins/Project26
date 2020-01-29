@@ -36,7 +36,7 @@ function calculate () {
         numsSize-=1;
       }
       document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
-      document.querySelector('.screen').style.fontSize = `${numsSize}px`;
+      screen.style.fontSize = `${numsSize}px`;
       }
     }
   }
@@ -44,7 +44,6 @@ function calculate () {
   function operatorClick (event) {
     tempNums = [];
     currentOperator = event.target.textContent;
-    console.log(currentOperator);
     operatorNums.push(Number(screenNums.join('')));
     document.querySelector('.decimal').removeAttribute('disabled');
   }
@@ -66,6 +65,13 @@ function calculate () {
     operatorNums = [];
     screenNums[0] = runningTotal;
     screen.textContent = runningTotal;
+    if (runningTotal.toString().length > 8) {
+      numsSize = 25;
+      lineHeight = 80;
+      screen.style.justifyContent = 'flex-end';
+      screen.style.fontSize = `${numsSize}px`;
+      document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
+    }
   }
 
   function plusOrMinusClick () {
