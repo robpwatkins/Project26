@@ -37,7 +37,7 @@ function calculate () {
   
   function operatorClick (event) {
     tempNums = [];
-    event.target.style.background = 'white';
+    currentOperator = event.target.textContent;
     operatorNums.push(Number(screenNums.join('')));
     document.querySelector('.decimal').removeAttribute('disabled');
   }
