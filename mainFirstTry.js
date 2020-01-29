@@ -10,6 +10,7 @@ function calculate () {
   function buttonNumClick (event) {
     tempNums.push(event.target.textContent);
     screenNums = [];
+    console.log(screenNums);
     if (event.target.textContent === '.') {
       screenNums.push(0 + event.target.textContent)
       screen.textContent = screenNums;
