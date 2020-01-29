@@ -6,6 +6,8 @@ function calculate () {
   let currentOperator;
   let tempNums = [];
   screen.textContent = screenNums;
+  let numsSize = 55;
+  let lineHeight = 75;
 
   function buttonNumClick (event) {
     tempNums.push(event.target.textContent);
@@ -19,13 +21,11 @@ function calculate () {
       screen.textContent = screenNums;
     }
       if (tempNums.length > 8) {
-        let numsLength = 8;
-        let numsLengthPlus = tempNums.length;
-        console.log(numsLength, numsLengthPlus);
-        let numsSize = 55;
-        if (numsLengthPlus > numsLength) {
-          numsSize += numsLength - numsLengthPlus;
-        }
+        screen.style.justifyContent = 'flex-end';
+        screen.style.alignItems = 'center';
+        document.querySelector('.screenBox').style.lineHeight = `${lineHeight}px`;
+        lineHeight-=3;
+        numsSize-=4;
         document.querySelector('.screen').style.fontSize = `${numsSize}px`;
       }
   }
