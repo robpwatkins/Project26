@@ -10,7 +10,6 @@ function calculate () {
   function buttonNumClick (event) {
     tempNums.push(event.target.textContent);
     screenNums = [];
-    console.log(screenNums);
     if (event.target.textContent === '.') {
       screenNums.push(0 + event.target.textContent)
       screen.textContent = screenNums;
@@ -19,11 +18,22 @@ function calculate () {
       screenNums.push(Number(tempNums.join('')));
       screen.textContent = screenNums;
     }
+      if (tempNums.length > 8) {
+        let numsLength = 8;
+        let numsLengthPlus = tempNums.length;
+        console.log(numsLength, numsLengthPlus);
+        let numsSize = 55;
+        if (numsLengthPlus > numsLength) {
+          numsSize += numsLength - numsLengthPlus;
+        }
+        document.querySelector('.screen').style.fontSize = `${numsSize}px`;
+      }
   }
+
   
   function operatorClick (event) {
     tempNums = [];
-    currentOperator = event.target.textContent;
+    event.target.style.background = 'white';
     operatorNums.push(Number(screenNums.join('')));
     document.querySelector('.decimal').removeAttribute('disabled');
   }
