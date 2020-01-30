@@ -93,6 +93,11 @@ function calculate () {
     runningTotal = null;
     currentOperator = null;
     tempNums = [];
+    screen.style.fontSize = '55px';
+    screen.style.justifyContent = 'center';
+    screen.style.alignItems = 'flex-end';
+    numsSize = 55;
+    lineHeight = 100;
     document.querySelector('.decimal').removeAttribute('disabled');
   }
 
@@ -100,8 +105,7 @@ function calculate () {
     event.target.classList.add('buttonClicked');
   }
 
-  function removeButtonClicked (event) {
-    if (event.propertyName !== 'transform') return;
+  function removeButtonClicked () {
     this.classList.remove('buttonClicked');
   }
 
